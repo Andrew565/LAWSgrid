@@ -1,4 +1,4 @@
-# Layout ala World of Solitaire
+# Layout ala World of Solitaire (LAWS)
 
 _A Theory_
 
