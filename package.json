@@ -1,0 +1,10 @@
+{
+  "name": "lawsgrid",
+  "version": "0.0.1",
+  "description": "Layout Ala World of Solitaire",
+  "keywords": [
+    "card games"
+  ],
+  "main": "/index.html",
+  "dependencies": {}
+}

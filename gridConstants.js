@@ -17,8 +17,8 @@ export const gridConstants = {
   w: "WASTE PILE",
   WASTE_PILE: "w",
 
-  o: "ALLOW ONE",
-  ALLOW_ONE: "o",
+  l: "LIMIT",
+  LIMIT: "l",
 
   n: "NO LIMIT",
   NO_LIMIT: "n",
@@ -36,13 +36,35 @@ export const gridConstants = {
   FACE_DOWN: "q",
 
   p: "FACE UP",
-  FACE_UP: "p",
+  FACE_UP: "p"
 };
 
 const GC = gridConstants;
 
 export const GCTypes = {
-  containers: [GC.EMPTY, GC.SLOT, GC.FOUNDATION, GC.ROW],
+  containers: [GC.EMPTY, GC.SLOT, GC.ROW],
   content: [GC.DRAW_PILE, GC.WASTE_PILE],
-  modifiers: [GC.ALLOW_ONE, GC.NO_LIMIT, GC.HORIZONTAL, GC.TILT_LEFT, GC.TILT_RIGHT, GC.FACE_DOWN, GC.FACE_UP],
+  modifiers: [
+    GC.FACE_DOWN,
+    GC.FACE_UP,
+    GC.FOUNDATION,
+    GC.HORIZONTAL,
+    GC.LIMIT,
+    GC.NO_LIMIT,
+    GC.TILT_LEFT,
+    GC.TILT_RIGHT
+  ]
 };
+
+/**
+ * @typedef {LAWSRow[]} LAWSGrid
+ *
+ * @typedef {LAWSSlot[]} LAWSRow
+ *
+ * @typedef LAWSSlot
+ * @property {'EMPTY' | 'SLOT' | 'DRAW_PILE' | 'WASTE_PILE'} slotType
+ * @property {LAWSModifier[]} modifiers
+ * @property {object[]} content
+ *
+ * @typedef {{kind: string, quantity?: number}} LAWSModifier
+ */

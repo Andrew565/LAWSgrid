@@ -22,18 +22,17 @@ class LAWSgrid {
   }
 
   createGrid() {
+    const handleRowState = {
+      gridRow: [],
+      multiplier: 0,
+      modifiers: [],
+      targetContainer: null,
+      remainingElements: rows.length
+    };
     const rows = this.gridString.split(gridConstants.ROW);
     rows.shift(); // First row always empty
     rows.forEach((row, i) => {
-      this.grid[i] = row
-        .split("")
-        .reduce(handleRow, {
-          gridRow: [],
-          multiplier: 0,
-          modifiers: [],
-          targetContainer: null,
-          remainingElements: rows.length,
-        }).gridRow;
+      this.grid[i] = row.split("").reduce(handleRow, handleRowState).gridRow;
     });
   }
 
@@ -53,6 +52,8 @@ class LAWSgrid {
  * @prop {string[]} modifiers
  * @prop {object} targetContainer
  * @prop {number} remainingElements
+ *
+ * @typedef {(retVal: handleRowRetVal, currentElement: string) => handleRowRetVal} rowSymbolHandler
  */
 
 /**
@@ -60,19 +61,27 @@ class LAWSgrid {
  * @param {string} currentElement
  */
 function handleRow(retVal, currentElement) {
-  [processIfContainer, processIfContent, processIfModifier].forEach((proc) => proc(retVal, currentElement));
-  return retVal;
+  /** @type {{[x: string]: rowSymbolHandler}} */
+  const processors = {
+    containers: processContainer,
+    content: processContent,
+    modifiers: processModifier
+  };
+
+  let gridType = Object.keys(GCTypes).filter((type) =>
+    type.includes(currentElement)
+  )[0];
+  return processors[gridType](retVal, currentElement);
 }
 
-/**
- * @param {handleRowRetVal} retVal
- * @param {string} currentElement
- */
-function processIfContainer(retVal, currentElement) {
-  if (GCTypes.containers.includes(currentElement)) {
-    retVal.gridRow.push(retVal.targetContainer);
-    // TODO: More, assign new target
-  }
+/** @type {rowSymbolHandler} */
+function processContainer(retVal, currentElement) {
+  retVal.gridRow.push(retVal.targetContainer);
+  // TODO: More, assign new target
 }
-function processIfContent(retVal, currentElement) {}
-function processIfModifier(retVal, currentElement) {}
+
+/** @type {rowSymbolHandler} */
+function processContent(retVal, currentElement) {}
+
+/** @type {rowSymbolHandler} */
+function processModifier(retVal, currentElement) {}
