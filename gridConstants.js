@@ -57,7 +57,7 @@ export const GCTypes = {
 };
 
 /**
- * @typedef {LAWSRow[]} LAWSGrid
+ * @typedef {{rows: LAWSRow[]}} LAWSGrid
  *
  * @typedef {LAWSSlot[]} LAWSRow
  *

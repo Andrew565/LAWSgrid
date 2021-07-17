@@ -2,9 +2,9 @@
   "name": "lawsgrid",
   "version": "0.0.1",
   "description": "Layout Ala World of Solitaire",
-  "keywords": [
-    "card games"
-  ],
-  "main": "/index.html",
-  "dependencies": {}
+  "keywords": ["card games"],
+  "main": "LAWSgrid.js",
+  "dependencies": {
+    "@babel/runtime": "7.14.6"
+  }
 }
