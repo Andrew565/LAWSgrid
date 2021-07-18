@@ -2,9 +2,22 @@
   "name": "lawsgrid",
   "version": "0.0.1",
   "description": "Layout Ala World of Solitaire",
-  "keywords": ["card games"],
+  "type": "module",
+  "keywords": [
+    "card games"
+  ],
   "main": "LAWSgrid.js",
+  "scripts": {
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
+  },
   "dependencies": {
     "@babel/runtime": "7.14.6"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.24",
+    "jest": "^27.0.6"
+  },
+  "jest": {
+    "transform": {}
   }
 }
