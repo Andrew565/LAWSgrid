@@ -1,4 +1,4 @@
-import { gridComponents } from "../views/gridComponents";
+import { gridComponents } from "../views/gridComponents.js";
 
 /** @param {import("./gridConstants").LAWSGrid} layoutObject */
 export const isValidLayout = (layoutObject) => {

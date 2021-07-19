@@ -7,5 +7,62 @@
     <title>LAWSGrid Demo</title>
     <link rel="stylesheet" href="src/styles/LAWSGrid.css" />
   </head>
-  <body></body>
+  <body>
+    <main>
+      <!-- Cards will end up going here. -->
+    </main>
+    <script type="module">
+      import { makeGrid } from "./src/logic/LAWSGrid.js";
+      import { gridConstants as GC } from "./src/logic/gridConstants.js";
+
+      /** @type {import ('./src/logic/gridConstants.js').LAWSGrid} */
+      const clearTheDungeonLayout = {
+        rows: [
+          [
+            { slotType: GC.EMPTY },
+            { slotType: "SLOT", modifiers: [{ kind: GC.FACE_DOWN }] },
+            { slotType: "SLOT", modifiers: [{ kind: GC.FACE_DOWN }] },
+            { slotType: "SLOT", modifiers: [{ kind: GC.FACE_DOWN }] },
+            { slotType: "SLOT", modifiers: [{ kind: GC.FACE_DOWN }] },
+            { slotType: GC.EMPTY },
+          ],
+          [
+            { slotType: GC.EMPTY },
+            { slotType: "SLOT", modifiers: [{ kind: GC.FACE_DOWN }] },
+            { slotType: "SLOT", modifiers: [{ kind: GC.FACE_DOWN }] },
+            { slotType: "SLOT", modifiers: [{ kind: GC.FACE_DOWN }] },
+            { slotType: "SLOT", modifiers: [{ kind: GC.FACE_DOWN }] },
+            { slotType: GC.EMPTY },
+          ],
+          [
+            { slotType: GC.EMPTY },
+            { slotType: "SLOT", modifiers: [{ kind: GC.FACE_UP }] },
+            { slotType: "SLOT", modifiers: [{ kind: GC.FACE_UP }] },
+            { slotType: "SLOT", modifiers: [{ kind: GC.FACE_UP }] },
+            { slotType: "SLOT", modifiers: [{ kind: GC.FACE_UP }] },
+            { slotType: GC.EMPTY },
+          ],
+          [
+            { slotType: GC.DECK },
+            { slotType: GC.EMPTY },
+            { slotType: GC.EMPTY },
+            { slotType: GC.EMPTY },
+            { slotType: GC.EMPTY },
+            { slotType: GC.WASTE_PILE },
+          ],
+          [
+            { slotType: GC.EMPTY },
+            { slotType: "SLOT", modifiers: [{ kind: GC.LIMIT, quantity: 1 }] },
+            { slotType: "SLOT", modifiers: [{ kind: GC.LIMIT, quantity: 1 }] },
+            { slotType: "SLOT", modifiers: [{ kind: GC.LIMIT, quantity: 1 }] },
+            { slotType: "SLOT", modifiers: [{ kind: GC.LIMIT, quantity: 1 }] },
+            { slotType: GC.EMPTY },
+          ],
+        ],
+      };
+
+      const grid = makeGrid(clearTheDungeonLayout);
+      document.getElementsByTagName("main")[0].innerHTML = grid;
+    </script>
+  </body>
 </html>

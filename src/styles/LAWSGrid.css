@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+}
+
+.lawsGrid-container {
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: forestgreen;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 5vh 10vw;
+}
+
+.lawsGrid-row {
+  flex: 1 0 auto;
+  display: flex;
+  background-color: rebeccapurple;
+}
+
+.lawsGrid-slot {
+  width: 100%;
+  height: 100%;
+  background-color: tan;
+  margin: 0;
+  border: 1px solid rebeccapurple;
+}
+
+.lawsGrid-slot.lawsGrid-empty {
+  background: none;
+}
