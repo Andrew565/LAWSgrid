@@ -6,7 +6,7 @@
   "keywords": [
     "card games"
   ],
-  "main": "LAWSgrid.js",
+  "main": "dist/LAWSgrid.app.js",
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   },
