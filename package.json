@@ -1,12 +1,12 @@
 {
   "name": "lawsgrid",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Layout Ala World of Solitaire",
   "type": "module",
   "keywords": [
     "card games"
   ],
-  "main": "dist/LAWSgrid.app.js",
+  "main": "dist/LAWSGrid.app.js",
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   },
